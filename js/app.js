@@ -57,6 +57,7 @@ play.addEventListener('click', function() {
 
         // Creare un evento click dove stampare ciao
         cella.addEventListener('click', function() {
+            // se la cella è gia stata cliccata non far ripetere l'operazione
             if (!cella.classList.contains('bg-secondary')) {
                 console.log(num)
     

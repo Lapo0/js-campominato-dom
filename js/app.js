@@ -29,14 +29,12 @@ let levelPc
 
 play.addEventListener('click', function() {
 
-
     const level = levelPc
 
     // Celle sul lato e celle totali
     let latoGrid = level
     let totalGrid = latoGrid ** 2
     // console.log(latoGrid, totalGrid)
-
     
     // generare numero random da 1 a 16 nello stesso range della difficoltà scelta
     let numeriRandom = [];
@@ -77,17 +75,24 @@ play.addEventListener('click', function() {
         // Assegnare ad ogni cella un indice uguale al numero
         const cella = celleElements[i]
 
-        // Creare un evento click dove stampare ciao
+        // Creare un evento click per ogni cella
+        let cellsFound = 0;
+
+        function gameOver() {
+            alert("Hai cliccato su una cella sbagliata! La partita è terminata");
+            griglia.innerHTML = "";
+            play.click();
+        }
+
         cella.addEventListener('click', function() {
-            // se la cella è gia stata cliccata non far ripetere l'operazione
-            if (!cella.classList.contains('bg-secondary')) {
-                console.log(num)
-    
-                // Aggiungere background
-                cella.classList.add('bg-secondary')
+            if (!cella.classList.contains('bg-secondary') && !cella.classList.contains('bg-primary')) {
+              if (numeriRandom.includes(num)) {
+                cella.classList.add('bg-primary');
+                gameOver();
+              } else {
+                cella.classList.add('bg-secondary');
+              }
             }
         })
     }
-
-    // creare un numero random da 1 a numero massimo delle celle
 })

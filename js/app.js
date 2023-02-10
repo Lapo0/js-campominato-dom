@@ -6,22 +6,30 @@ const play = document.getElementById('btn-play')
 const griglia = document.querySelector('.griglia')
 // console.log(griglia)
 
-play.addEventListener('click', function() {
+let levelPc
 
-    // Creare un input dove l'utente possa scegliere il livello
+ // Creare un input dove l'utente possa scegliere il livello
     // Selezionare input dall'HTML
     const levelUser = document.getElementById('level')
     // console.log(levelUser)
+    
 
     // Prendere il valore dell'utente
-    const levelPc = levelUser.value
-    if (levelPc < 1 || levelPc > 10) {
-        console.log('I livelli sono da 1 a 10')
-        levelPc = ''
-    }
-    console.log(levelPc)
+    levelUser.addEventListener('change', function () {
+       
+        if (levelUser.value === "1") {
+          levelPc = 10;
+        } else if (levelUser.value === "2") {
+          levelPc = 9;
+        } else if (levelUser.value === "3") {
+          levelPc = 7;
+        }
+        console.log(levelPc);
+    })
 
-    const level = levelPc * 2
+play.addEventListener('click', function() {
+
+    const level = levelPc
 
     // Celle sul lato e celle totali
     let latoGrid = level
@@ -66,4 +74,6 @@ play.addEventListener('click', function() {
             }
         })
     }
+
+    // creare un numero random da 1 a numero massimo delle celle
 })

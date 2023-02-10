@@ -29,12 +29,26 @@ let levelPc
 
 play.addEventListener('click', function() {
 
+
     const level = levelPc
 
     // Celle sul lato e celle totali
     let latoGrid = level
     let totalGrid = latoGrid ** 2
     // console.log(latoGrid, totalGrid)
+
+    
+    // generare numero random da 1 a 16 nello stesso range della difficoltà scelta
+    let numeriRandom = [];
+
+    // creare un ciclo per verificare che il numeroRandom non sia già stato inserito
+    while (numeriRandom.length < 16) {
+        let numero = Math.floor(Math.random() * totalGrid) + 1;
+        if (!numeriRandom.includes(numero)) {
+            numeriRandom.push(numero);
+        }
+    }
+    console.log(numeriRandom);
 
     //Azzerare HTML griglia
     griglia.innerHTML = ''

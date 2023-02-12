@@ -23,5 +23,10 @@ button > img {
 
 .mirrored {
     transform: scaleX(-1);
-  }
+}
+
+#score,
+#game-over{
+    font-size: 100px;
+}
   

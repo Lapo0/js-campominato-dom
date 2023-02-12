@@ -6,26 +6,31 @@ const play = document.getElementById('btn-play')
 const griglia = document.querySelector('.griglia')
 // console.log(griglia)
 
-let levelPc
+// Creare un input dove l'utente possa scegliere il livello
+// Selezionare input dall'HTML
+const levelUser = document.getElementById('level')
+// console.log(levelUser)
 
- // Creare un input dove l'utente possa scegliere il livello
-    // Selezionare input dall'HTML
-    const levelUser = document.getElementById('level')
-    // console.log(levelUser)
+let levelPc = ''
+
+// Prendere il valore dell'utente
+levelUser.addEventListener('change', function () {
     
+    if (levelUser.value === "1") {
+        levelPc = 10;
+    } else if (levelUser.value === "2") {
+        levelPc = 9;
+    } else if (levelUser.value === "3") {
+        levelPc = 7;
+    }
+    console.log(levelPc);
+})
 
-    // Prendere il valore dell'utente
-    levelUser.addEventListener('change', function () {
-       
-        if (levelUser.value === "1") {
-          levelPc = 10;
-        } else if (levelUser.value === "2") {
-          levelPc = 9;
-        } else if (levelUser.value === "3") {
-          levelPc = 7;
-        }
-        console.log(levelPc);
-    })
+// Bottone per il restart della partita
+const restartButton = document.getElementById('btn-restart')
+restartButton.addEventListener('click', function() {
+  play.click()
+})
 
 play.addEventListener('click', function() {
 
@@ -54,7 +59,7 @@ play.addEventListener('click', function() {
     // Creare ciclo
     for (let i = 0; i < totalGrid; i++) {
         let num = i + 1
-        console.log(num)
+        // console.log(num)
 
         // Creare i div con il numero corrispondente all'interno e la grandezza in base ai lati
         const cellString = `<div class='ratio ratio-1x1 cella border-secondary' style='width: calc(100% / ${ latoGrid })'> ${ num } </div>`
@@ -73,17 +78,16 @@ play.addEventListener('click', function() {
         let num = i + 1
 
         // Assegnare ad ogni cella un indice uguale al numero
-        const cella = celleElements[i]
-
-        // Creare un evento click per ogni cella
-        let cellsFound = 0;
+        let cella = celleElements[i]
+        console.log(cella)
 
         function gameOver() {
-            alert("Hai cliccato su una cella sbagliata! La partita è terminata");
+            alert("Hai cliccato su una cella BOMBA! La partita è terminata");
             griglia.innerHTML = "";
             play.click();
         }
 
+        // Creare un evento click per ogni cella
         cella.addEventListener('click', function() {
             if (!cella.classList.contains('bg-secondary') && !cella.classList.contains('bg-primary')) {
               if (numeriRandom.includes(num)) {

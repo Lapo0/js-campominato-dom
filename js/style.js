@@ -22,7 +22,10 @@ let celleCliccate = 0
 
 let score = document.getElementById('score')
 const gameOverEl = document.getElementById('game-over')
+const restartEl = document.getElementById('btn-restart')
 
+restartEl.addEventListener('click', isRestart)
+console.log(isRestart)
 
 /****************************************************
  * FUNZIONI
@@ -41,8 +44,9 @@ function updateLevelPc() {
 function clickPlay() {
 
     celleCliccate = 0
+
+    score.innerHTML = 0
     
-    //////////////////////////////////////* *//////////////////////////////////
     gameOverEl.innerHTML = ''
 
     // Settare il livello
@@ -111,10 +115,12 @@ function clickPlay() {
 function gameOver() {
     griglia.innerHTML = "";
     score.innerHTML = celleCliccate * 10
-    console.log(score)
     gameOverEl.innerHTML = 'Game Over'
     console.log(gameOverEl)
-    play.click();
+}
+
+function isRestart() {
+    play.click()
 }
 
 function generateRandomNumbers(grigliaTotale) {

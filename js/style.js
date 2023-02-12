@@ -27,6 +27,8 @@ const restartEl = document.getElementById('btn-restart')
 restartEl.addEventListener('click', isRestart)
 console.log(isRestart)
 
+const avvertimento = document.getElementById('avvertimento')
+
 /****************************************************
  * FUNZIONI
 *****************************************************/
@@ -48,6 +50,9 @@ function clickPlay() {
     score.innerHTML = 0
     
     gameOverEl.innerHTML = ''
+
+    restartEl.style.display = "none"
+    avvertimento.style.display = "none"
 
     // Settare il livello
     const level = levelValue
@@ -117,6 +122,9 @@ function gameOver() {
     score.innerHTML = celleCliccate * 10
     gameOverEl.innerHTML = 'Game Over'
     console.log(gameOverEl)
+    restartEl.style.display = "block"
+    play.style.display = "none"
+    avvertimento.style.display = "block"
 }
 
 function isRestart() {

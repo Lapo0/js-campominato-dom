@@ -12,41 +12,46 @@
 
     <main>
         <section>
-            <div class="container py-5 d-flex flex-column align-items-center">
+            <div class="container-fluid pt-5 d-flex flex-column align-items-center">
                 <div class="titol d-flex justify-content-center align-items-center">
                     <div class="img-eye w-25 pe-2">
                         <img src="./img/occhio-spaventato.png" class="mirrored" alt="">
                     </div>
-                    <h1 class="text-secondary text-center">
-                        ATTENTO ALLA BOMBA
-                    </h1>
+                    <div class="titolo text-secondary text-center">
+                        <h1>
+                            ATTENTO ALLA BOMBA
+                        </h1>
+                        <p id="avvertimento">
+                            Te l'avevo detto!!
+                        </p>
+                    </div>
                     <div class="img-eye w-25 ps-2">
                         <img src="./img/occhio-spaventato.png" alt="">
                     </div>
                 </div>
                 
-                <select class="form-select form-select-lg mb-3 text-center" id="level" aria-label=".form-select-lg example">
-                    <option selected>Seleziona la difficoltà</option>
-                    <option value="1">FACILE</option>
-                    <option value="2">MEDIO</option>
-                    <option value="3">DIFFICILE</option>
+                <select class="form-select form-select-lg mb-3 text-center w-25" id="level" aria-label=".form-select-lg example">
+                    <option selected>Scegli il livello</option>
+                    <option value="1">EASY UOMO</option>
+                    <option value="2">NON CE LA FAI</option>
+                    <option value="3">ADDIO UOMO</option>
                 </select>
                 <button type="button" class="btn w-25" id="btn-play">
-                    <img src="./img/bocca.png" alt="">
+                    <img src="./img/boccafelice.png" alt="">
                 </button>
-                <button type="button" class="btn w-25" id="btn-restart">
-                    RESTART GAME
+                <button type="button" class="btn" id="btn-restart">
+                    <img src="./img/boccatriste.png" alt="">
                 </button>
             </div>
         </section>
         <section>
-            <div class="container pb-5">
+            <div class="container-fluid pb-5">
                 <div class="griglia d-flex flex-wrap">
                 </div>
             </div>
         </section>
         <section>
-            <div class="container">
+            <div class="container-fluid">
                 <div id="score" class="text-center">
 
                 </div>

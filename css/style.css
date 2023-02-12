@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+body{
+    height: 100vh;
+}
+
 img {
     max-width: 100%;
 }
@@ -29,4 +33,13 @@ button > img {
 #game-over{
     font-size: 100px;
 }
-  
+
+#btn-restart{
+    display: none;
+    font-size: 25px;
+    padding: 20px 0;
+}
+
+.titolo > p {
+    display: none;
+}
